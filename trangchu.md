@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Food</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f5e9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 48px;
+            color: #4caf50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 24px;
+            color: #388e3c;
+        }
+      .slider-container {
+    position: relative;
+    width: 1000px; /* Chiều rộng bằng 2/3 */
+    height: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }            /* Hình 1 */
+    20% { transform: translateX(0); }           /* Hiển thị Hình 1 */
+    25% { transform: translateX(-100%); }       /* Chuyển sang Hình 2 */
+    45% { transform: translateX(-100%); }       /* Hiển thị Hình 2 */
+    50% { transform: translateX(-200%); }       /* Chuyển sang Hình 3 */
+    70% { transform: translateX(-200%); }       /* Hiển thị Hình 3 */
+    75% { transform: translateX(-300%); }       /* Chuyển sang Hình 4 */
+    95% { transform: translateX(-300%); }       /* Hiển thị Hình 4 */
+    100% { transform: translateX(-400%); }      /* Chuyển sang Hình 5 */
+    100% { transform: translateX(0); }           /* Trở về Hình 1 */
+}
+
+.slides {
+    display: flex;
+    animation: slide 20s infinite; /* Thay đổi cho phù hợp */
+}
+
+        .slide {
+            min-width: 100%;
+            height: 300px;
+            position: relative;
+            background-color: #fff;
+        }
+        .slide img {
+    width: 100%; 
+    height: auto; 
+    max-height: 500px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            border: 5px solid #333;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .divider {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            padding: 15px 0;
+            background-color: #ddd;
+            position: relative;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .divider:hover {
+            background-color: #bbb;
+            transform: scale(1.05);
+        }
+        .content {
+            display: none;
+            border: 3px solid #4caf50;
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #c8e6c9;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(1, 66, 50, 0.2);
+        }
+        .content.active {
+            display: block;
+        }
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .image-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 66.67%;
+        }
+        .image-column.right-column {
+            width: 33.33%;
+        }
+        .image-column img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .image-column.right-column img {
+            width: 60%;
+            height: auto;
+            max-width: 100%;
+        }
+        footer {
+            display: flex;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        footer div {
+            flex: 1;
+            padding-right: 20px;
+            text-align: left;
+        }
+        footer ul li {
+            color: #388e3c;
+        }
+        .comments-section {
+            margin-top: 40px;
+        }
+        .comment-form {
+            margin-top: 20px;
+        }
+        #comment-input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #388e3c;
+        }
+        #comments-list {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 80%;
+            margin: auto;
+        }
+        .comment {
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #4caf50;
+        }
+    </style>
+</head>
+<audio id="background-music" loop autoplay>
+    <source src="nhac1234.mp3" type="audio/mpeg">
+</audio>
+<body>
+    <div class="slider-container">
+        <div class="slides">
+            <div class="slide"><img src="../anh1" alt="Hình ảnh 1"></div>
+            <div class="slide"><img src="../anh2" alt="Hình ảnh 2"></div>
+            <div class="slide"><img src="../anh3" alt="Hình ảnh 3"></div>
+            <div class="slide"><img src="../anh4" alt="Hình ảnh 4"></div>
+            <div class="slide"><img src="../anh9.jpg" alt="Hình ảnh 5"></div>
+          
+        </div>
+    </div>
+
+    <h1>Green Food</h1>
+    <p>Khám phá những thực phẩm xanh và lành mạnh cho sức khỏe!</p>
+
+    <div class="container">
+        <div class="divider" onclick="showContent('page1')">Trang 1</div>
+        <div class="divider" onclick="showContent('page2')">Trang 2</div>
+        <div class="divider" onclick="showContent('page3')">Trang 3</div>
+    </div>
+
+    <div id="page1" class="content">
+        <h2>MỘT CHẾ ĐỘ ĂN UỐNG LÀNH MẠNG LÀ GÌ?</h2> 
+        <div class="image-row">
+            <div class="image-column">
+                <img src="../hình trang 1.4" alt="Hình ảnh minh họa Trang 1 - 2">
+            </div>
+            <div class="image-column">
+                <img src="../hình trang 1.2.jpg" alt="Hình ảnh minh họa Trang 1 - 3">
+            </div>
+        </div>   // thm hình
+    
+        <p><a href="trang1.html">Đi đến Trang 1</a></p><br>
+    </div>
+
+    <div id="page2" class="content">
+        <h2>VITAMIN VÀ THỨC UỐNG BỔ SUNG</h2>
+        <div class="image-row">
+            <div class="image-column">
+                <img src="../A1.1.jpg" alt="Hình ảnh minh họa Trang 2 - 1" style="margin-bottom: 50px;">
+                <img src="../B1.1.jpg" alt="Hình ảnh minh họa Trang 2 - 2" style="margin-bottom: 50px;">
+                <img src="../C1.1.jpg" alt="Hình ảnh minh họa Trang 2 - 3" style="margin-bottom: 50px;">
+                <img src="../D1.1.jpg" alt="Hình ảnh minh họa Trang 2 - 4" style="margin-bottom: 50px;">
+            </div>
+            <div class="image-column right-column">
+                <img src="../A1.2.jpg" alt="Hình ảnh minh họa Trang 2 - 5">
+                <img src="../A1.3.jpg" alt="Hình ảnh minh họa Trang 2 - 6">
+                <img src="../A1.4.jpg" alt="Hình ảnh minh họa Trang 2 - 7" style="margin-bottom: 60px;">
+                <img src="../B1.2.jpg" alt="Hình ảnh minh họa Trang 2 - 8">
+                <img src="../B1.3.jpg" alt="Hình ảnh minh họa Trang 2 - 9">
+                <img src="../B1.4.jpg" alt="Hình ảnh minh họa Trang 2 - 10" style="margin-bottom: 60px;">
+                <img src="../C1.2.jpg" alt="Hình ảnh minh họa Trang 2 - 11">
+                <img src="../C1.3.jpg" alt="Hình ảnh minh họa Trang 2 - 12">
+                <img src="../C1.4.jpg" alt="Hình ảnh minh họa Trang 2 - 12" style="margin-bottom: 80px;">
+                <img src="../D1.2.jpg" alt="Hình ảnh minh họa Trang 2 - 11">
+                <img src="../D1.3.jpg" alt="Hình ảnh minh họa Trang 2 - 10">
+                <img src="../D1.4.jpg" alt="Hình ảnh minh họa Trang 2 - 9">
+            </div>
+        </div>
+        <p><a href="trang2.html">Đi đến Trang 2</a></p><br>
+    </div>
+
+    <div id="page3" class="content">
+        <h2>MỘT SỐ BÀI TẬP NÂNG CAO SỨC KHOẺ</h2>
+        <div class="image-row">
+            <div class="image-column">
+                <img src="../hình trang 3.2.jpg" alt="Hình ảnh minh họa Trang 3 - 2">
+            </div>
+            <div class="image-column right-column">
+                <img src="../hình trang 3.3" alt="Hình ảnh minh họa Trang 3 - 3">
+                <img src="../hình trang 3.4.jpg" alt="Hình ảnh minh họa Trang 3 - 3">
+                <img src="../hình trang 3.1.jpg" alt="Hình ảnh minh họa Trang 3 - 3">
+            </div>
+        </div>
+        <p><a href="trang3.html">Đi đến Trang 3</a></p><br>
+    </div>
+
+    <footer>
+        <div>
+            <h3 style="font-size: 30px;">Thông tin liên hệ</h3>
+            <p style="font-size: 20px;">Địa chỉ: Trường THPT Ung Văn Khiêm, Long Kiến, Chợ Mới, An Giang </p>
+            <p style="font-size: 20px;">Chi Đoàn: <span style="color: #388e3c;">12A1</span></p>
+            <p style="font-size: 20px;">Email: phamy0525@gmail.com</p>
+            <p style="font-size: 20px;">Số điện thoại: 0355 806 012</p>
+            <p style="font-size: 20px;">Số điện thoại tư vấn: 0343 328 420 <br>(Zalo: Quốc Thuận) </p>
+            <h3 style="font-size: 28px;">Quy định và điều khoản</h3>
+            <p style="font-size: 18px;"><a href="../ĐK&QĐ.html" style="text-decoration: none;">Xem quy định và điều khoản</a></p>
+        </div>
+        <div>
+            <h3 style="font-size: 30px;">Đơn vị hỗ trợ</h3>
+            <p style="font-size: 20px;">Email Visual Studio Code: <a href="mailto:mike@vscode.one" style="text-decoration: none; color: #0d4785;">mike@vscode.one</a></p>
+            <p style="font-size: 20px;">Tải Visual Studio Code <a href="https://code.visualstudio.com/" target="_blank" style="text-decoration: none; color: #0d4785;">tại đây</a>.</p>
+        </div>
+        <div>
+            <h3 style="font-size: 30px;">Thông tin cung cấp</h3>
+            <ul style="font-size: 20px;">
+                <li>Chế độ ăn uống lành mạng</li>
+                <li>Các nhóm Vitamin</li>
+                <li>Thức uống bổ sung</li>
+                <li>Các bài tập rèn luyện sức khoẻ</li>
+            </ul>
+        </div>
+    </footer>
+
+    <div style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-top: 1px solid #e0e0e0;">
+        <h3 style="font-size: 30px;">Thành viên tham gia xây dựng</h3>
+        <p style="font-size: 20px; margin: 0;">DƯƠNG PHẠM TUẤN KHA | BẠCH QUỐC THUẬN | TRƯƠNG GIA TUỆ | TRẦN NGỌC TOÀN | NGUYỄN THÀNH PHÁT </p>
+    </div>
+
+    <div class="comments-section">
+        <div class="comment-form">
+            <textarea id="comment-input" rows="4" placeholder="Nhập bình luận của bạn..."></textarea>
+            <button onclick="addComment()">Gửi</button>
+        </div>
+        <div id="comments-list"></div>
+    </div>
+
+    <script>
+    const music = document.getElementById('background-music');
+    music.volume = 0.12;
+
+    window.onload = () => {
+        if (localStorage.getItem('musicPaused') === 'true') {
+            music.pause();
+        } else {
+            music.play();
+        }
+    };
+
+    window.onbeforeunload = () => {
+        localStorage.setItem('musicPaused', music.paused);
+    };
+
+
+        function showContent(pageId) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            const selectedContent = document.getElementById(pageId);
+            selectedContent.classList.add('active');
+        }
+
+        function addComment() {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const commentsList = document.getElementById('comments-list');
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'comment';
+                commentDiv.innerText = commentText;
+                commentsList.appendChild(commentDiv);
+                commentInput.value = '';
+            } else {
+                alert("Hãy cho chúng tôi những nhận xét!");
+            }
+        }
+    </script>
+</body>
+</html>
+
